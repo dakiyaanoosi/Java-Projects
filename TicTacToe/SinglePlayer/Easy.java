@@ -1,95 +1,10 @@
 package TicTacToe.SinglePlayer;
-
+import TicTacToe.Common;
 import java.util.Scanner;
-class Easy
+
+class Easy extends Common
 {
-    static Character board[]={' ',' ',' ',' ',' ',' ',' ',' ',' '};
-    static char player[]={'X','O'};
-    static int turn=0;
-    static int counter=0;
-    static int position=-1;
-
-    static void print()
-    {
-        System.out.println();
-        int c=0;
-        for(int i=0;i<9;i++)
-        {
-            c++;
-            if(c<3)
-            System.out.print(" "+board[i]+" |" );
-            else
-            {
-                System.out.println(" "+board[i]+"  ");
-                if(i!=8)
-                System.out.println("------------");
-                c=0;
-            }
-        }
-    }
-    
-    static boolean checkWinner()
-    {
-        int [][] winpatterns={{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
-        for(int i[] : winpatterns)
-        {
-            if(board[i[0]]==board[i[1]] && board[i[0]]==board[i[2]] && board[i[0]]!=' ')
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    static void lastMove()
-    {
-        System.out.println();
-        String s="Filling last position";
-        for(int i=0;i<s.length()+5;i++)
-        {
-            try
-            {
-                Thread.sleep(60);
-            }
-            catch(Exception e)
-            {
-                System.out.println(e);
-            }
-            if(i>s.length()-1)
-            System.out.print(".");
-            else
-            System.out.print(s.charAt(i));
-        }
-        System.out.println();
-                
-        for(int i=0;i<9;i++)
-        {
-            if(board[i]==' ')
-            {
-                position=i;
-                break;
-            }
-        }
-        board[position]=player[turn];
-        print();
-        counter++;
-
-        if(checkWinner()==true)
-        {
-            if(player[turn]=='X')
-            System.out.println("\nCongratulations! Player 'X' Wins !\n");
-            else
-            System.out.println("\n Computer Wins !\n");
-            return;
-        }
-        else
-        {
-            System.out.println("\nIt's a Tie !\n");
-            return;
-        }
-    }
-
-    static void algo()
+    void algo()
     {
         if(counter<3)
         {
@@ -128,34 +43,11 @@ class Easy
         }
     }
 
-    static void input(Scanner sc)
+    void input(Scanner sc)
     {
         if(player[turn]=='X')
         {
-            System.out.print("\n\nPlayer 'X' ! Enter a position (1-9) : ");
-            String p=sc.nextLine();
-            p=p.trim();
-            while(true)
-            {
-                if(p.length()!=1)
-                System.out.print("Player 'X' ... Please enter valid position : ");
-                else if(Character.isDigit(p.charAt(0)))
-                {
-                    char pos=p.charAt(0);
-                    position=(pos-'0')-1;
-                    if(position<0 || position >8)
-                    System.out.print("Player 'X' ... Please enter valid position : ");
-                    else if(board[position]!=' ')
-                    System.out.print("Block Already Filled! Choose different position : ");
-                    else
-                    break;
-                }
-                else
-                System.out.print("Player 'X' ... Please enter valid position : ");
-                
-                p=sc.nextLine();
-                p=p.trim();
-            }
+            get(sc);
         }
         else
         {
@@ -164,7 +56,7 @@ class Easy
     }
 
 
-    static void play(Scanner sc)
+    void play(Scanner sc)
     {
         print();
         while(counter<9)
@@ -189,7 +81,7 @@ class Easy
                     if(checkWinner()==true)
                     {
                         if(player[turn]=='X')
-                        System.out.println("\nCongratulations! Player 'X' Wins !\n");
+                        System.out.println("\nCongratulations! "+name+" Wins !\n");
                         else
                         System.out.println("\nComputer Wins !\n");
                         return;
@@ -203,7 +95,9 @@ class Easy
     public static void main(String[] args)
     {
         Scanner sc=new Scanner(System.in);
-        Easy.play(sc);
+        Easy obj=new Easy();
+        obj.setName(sc);
+        obj.play(sc);
         sc.close();
     }
 }

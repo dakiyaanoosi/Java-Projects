@@ -1,47 +1,23 @@
 package TicTacToe;
 
 import java.util.Scanner;
-class TwoPlayers
+class TwoPlayers extends Common
 {
-    static Character board[]={' ',' ',' ',' ',' ',' ',' ',' ',' '};
-    static char player[]={'X','O'};
-    static int turn=0;
-    static int counter=0;
-    static int position=-1;
-
-    static void print()
+    String onm="O";
+    String xnm="X";
+    protected void setName(Scanner sc)
     {
-        System.out.println();
-        int c=0;
-        for(int i=0;i<9;i++)
-        {
-            c++;
-            if(c<3)
-            System.out.print(" "+board[i]+" |" );
-            else
-            {
-                System.out.println(" "+board[i]+"  ");
-                if(i!=8)
-                System.out.println("------------");
-                c=0;
-            }
-        }
+        System.out.print("Player 'O' !! Set your Custom name (default 'O') : ");
+        String t=sc.nextLine();
+        if(!t.isEmpty())
+        onm=t;
+        System.out.print("Player 'X' !! Set your Custom name (default 'X') : ");
+        t=sc.nextLine();
+        if(!t.isEmpty())
+        xnm=t;
     }
 
-    static boolean checkWinner()
-    {
-        int [][] winpatterns={{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
-        for(int i[] : winpatterns)
-        {
-            if(board[i[0]]==board[i[1]] && board[i[0]]==board[i[2]] && board[i[0]]!=' ')
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    static void lastMove()
+    protected void lastMove()
     {
         System.out.println();
         String s="Filling last position";
@@ -76,7 +52,10 @@ class TwoPlayers
 
         if(checkWinner()==true)
         {
-            System.out.println("\n"+player[turn]+" Wins !\n");
+            if(player[turn]=='O')
+            System.out.println("\n"+onm+" Wins !\n");
+            else
+            System.out.println("\n"+xnm+" Wins !\n");
             return;
         }
         else
@@ -86,35 +65,12 @@ class TwoPlayers
         }
     }
 
-    static void input(Scanner sc)
+    void input(Scanner sc)
     {
-        System.out.print("\n\nPlayer '"+player[turn]+"' ! Enter a position (1-9) : ");
-        String p=sc.nextLine();
-        p=p.trim();
-        while(true)
-        {
-            if(p.length()!=1)
-            System.out.print("Player "+player[turn]+" ... Please enter valid position : ");
-            else if(Character.isDigit(p.charAt(0)))
-            {
-                char pos=p.charAt(0);
-                position=(pos-'0')-1;
-                if(position<0 || position >8)
-                System.out.print("Player "+player[turn]+" ... Please enter valid position : ");
-                else if(board[position]!=' ')
-                System.out.print("Block Already Filled! Choose different position : ");
-                else
-                break;
-            }
-            else
-            System.out.print("Player "+player[turn]+" ... Please enter valid position : ");
-            
-            p=sc.nextLine();
-            p=p.trim();
-        }
+        get(sc);
     }
 
-    static void play(Scanner sc)
+    void play(Scanner sc)
     {
         print();
         while(counter<9)
@@ -135,7 +91,10 @@ class TwoPlayers
                 {
                     if(checkWinner()==true)
                     {
-                        System.out.println("\nCongratulations! Player "+player[turn]+" Wins !\n");
+                        if(player[turn]=='O')
+                        System.out.println("\n"+onm+" Wins !\n");
+                        else
+                        System.out.println("\n"+xnm+" Wins !\n");
                         return;
                     }
                 }
@@ -147,7 +106,9 @@ class TwoPlayers
     public static void main(String[] args)
     {
         Scanner sc=new Scanner(System.in);
-        TwoPlayers.play(sc);
+        TwoPlayers obj=new TwoPlayers();
+        obj.setName(sc);
+        obj.play(sc);
         sc.close();
     }
 }
