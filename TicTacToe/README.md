@@ -3,12 +3,16 @@ A simple yet interactive console-based Tic-Tac-Toe game with Two-Player mode and
 ### How to Run ?
 1. Clone the repository :
 ```
- git clone https://github.com/dakiyaanoosi/Java-Programs.git
+ git clone https://github.com/dakiyaanoosi/Java-Projects.git
 ```
 2. Navigate to the repository :
 ```
- cd Java-Programs
+ cd Java-Projects
  cd TicTacToe
+```
+3. Compile *Common.java* :
+```
+ javac -d . Common.java
 ```
 Compile and Execute the files :
 #### Two Players mode :

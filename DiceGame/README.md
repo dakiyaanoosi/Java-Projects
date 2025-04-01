@@ -3,18 +3,22 @@ A basic console-based Dice-Game developed using Java's Random class for roll sim
 ### How to run ?
 1. Clone the repository :
 ```
- git clone https://github.com/dakiyaanoosi/Java-Programs.git
+ git clone https://github.com/dakiyaanoosi/Java-Projects.git
 ```
 2. Navigate to the repository :
 ```
- cd Java-Programs
+ cd Java-Projects
  cd DiceGame
 ```
-3. Compile any file :
+3. Compile *Common.java* :
+```
+ javac -d . Common.java
+```
+4. Compile any file :
 ```
 javac -d . RoundsManual.java
 ```
-4. Execute the file :
+5. Execute the file :
 ```
 java DiceGame.RoundsManual
 ```

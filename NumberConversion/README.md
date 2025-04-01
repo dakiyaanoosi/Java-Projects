@@ -6,11 +6,11 @@ Java program to convert a number between Decimal, Binary, Octal, Hexadecimal or 
 ### How To Run ?
 1. Clone the repository :
 ```
- git clone https://github.com/dakiyaanoosi/Java-Programs.git
+ git clone https://github.com/dakiyaanoosi/Java-Projects.git
 ```
 2. Navigate to the repository :
 ```
- cd Java-Programs
+ cd Java-Projects
  cd NumberConversion
 ```
 3. Compile any file :
