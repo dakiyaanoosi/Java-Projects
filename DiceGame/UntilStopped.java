@@ -1,69 +1,8 @@
 package DiceGame;
 import java.util.Random;
 import java.util.Scanner;
-public class UntilStopped
+public class UntilStopped extends Common
 {
-    String [][] graphics =
-    {
-        {
-           "___________",
-           "|         |",
-           "|         |",
-           "|    *    |",
-           "|         |",
-           "|_________|"
-        },
-        {
-           "___________",
-           "|         |",
-           "|         |",
-           "| *     * |",
-           "|         |",
-           "|_________|"
-        },
-        {
-           "___________",
-           "|         |",
-           "|         |",
-           "| *  *  * |",
-           "|         |",
-           "|_________|"
-        },
-        {
-           "___________",
-           "| *     * |",
-           "|         |",
-           "|         |",
-           "|         |",
-           "|_*_____*_|"
-        },
-        {
-           "___________",
-           "| *     * |",
-           "|         |",
-           "|    *    |",
-           "|         |",
-           "|_*_____*_|"
-        },
-        {
-           "___________",
-           "| *     * |",
-           "|         |",
-           "| *     * |",
-           "|         |",
-           "|_*_____*_|"
-        }
-    };
-
-    void printSideBySide(int userRoll,int computerRoll)
-    {
-      System.out.printf("%-15s %13s\n","You","Computer");
-        for(int i=0;i<6;i++)
-        {
-            System.out.printf("%-15s %15s\n",graphics[userRoll-1][i],graphics[computerRoll-1][i]);
-        }       
-    }
-
     void Rounds(Scanner sc,Random random)
     {
       int a=0,b=0,i=1;
@@ -101,11 +40,6 @@ public class UntilStopped
          System.out.println("Winner : You\n");
          else
          System.out.println("Result : Tie!\n");
-    }
-
-    void ScoreBoard(int a,int b)
-    {
-      System.out.println("\nScores \nYou : "+a+"\nComputer : "+b+"\n");
     }
 
     public static void main(String[] args)
