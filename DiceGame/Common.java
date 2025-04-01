@@ -61,16 +61,9 @@ class Common {
 
    boolean validity(String s)
    {
-      if (s.isEmpty() || s.equals("0"))
-         return false;
-      for (int i = 0; i < s.length(); i++)
-      {
-         if (!Character.isDigit(s.charAt(i)))
-         {
-            return false;
-         }
-      }
+      if (s.matches("\\d+"))
       return true;
+      return false;
    }
 
    void ScoreBoard(int a,int b)
