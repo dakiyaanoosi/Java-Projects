@@ -61,7 +61,7 @@ class Common {
 
    boolean validity(String s)
    {
-      if (s.matches("\\d+"))
+      if (!s.equals("0") && s.matches("\\d+"))
       return true;
       return false;
    }
