@@ -1,10 +1,7 @@
 package TicTacToe;
 
-import java.util.Scanner;
 class TwoPlayers extends Common
 {
-    Scanner sc=new Scanner(System.in);
-
     protected void lastMove()
     {
         System.out.println();

@@ -1,10 +1,8 @@
 package TicTacToe.SinglePlayer;
 import TicTacToe.Common;
-import java.util.Scanner;
 
 public class Easy extends Common
 {
-    Scanner sc=new Scanner(System.in);
     void algo()
     {
         if(counter<3)
