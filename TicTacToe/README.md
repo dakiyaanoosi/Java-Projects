@@ -18,7 +18,7 @@ A simple yet interactive console-based Tic-Tac-Toe game with Two-Player mode and
  javac -d . TwoPlayers.java
  javac -d . Start.java
 ```
-#### Execute the main file :
+4. Execute the main file :
 ```
  java TicTacToe.Start
 ```
