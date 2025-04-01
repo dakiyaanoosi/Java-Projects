@@ -3,44 +3,36 @@ import java.util.Scanner;
 
 public class Common
 {
+    Scanner sc=new Scanner(System.in);
     protected Character board[]={' ',' ',' ',' ',' ',' ',' ',' ',' '};
     protected char player[]={'X','O'};
     protected int turn=0;
     protected int counter=0;
     protected int position=-1;
-    protected String name="X";
 
-    protected void setName(Scanner sc)
+    protected void get()
     {
-        System.out.print("Set your custom name (default : 'X') : ");
-        String t=sc.nextLine();
-        if(!t.isEmpty())
-        name=t;
-    }
-
-    protected void get(Scanner sc)
-    {
-        System.out.print("\n\nPlayer '"+player[turn]+"' ! Enter a position (1-9) : ");
+        System.out.print("\n\nPlayer '"+player[turn]+"' Enter a position (1-9) : ");
         String p=sc.nextLine();
         p=p.trim();
         while(true)
         {
-            if(p.length()!=1)
-            System.out.print("Player "+player[turn]+" ... Please enter valid position : ");
-            else if(Character.isDigit(p.charAt(0)))
+            try
             {
-                char pos=p.charAt(0);
-                position=(pos-'0')-1;
-                if(position<0 || position >8)
-                System.out.print("Player "+player[turn]+" ... Please enter valid position : ");
-                else if(board[position]!=' ')
-                System.out.print("Block Already Filled! Choose different position : ");
+                position=Integer.parseInt(p)-1;
+                if(position>=0 && position<=8)
+                {
+                    if(board[position]!=' ')
+                    {
+                        System.out.print("Block Already Filled! Choose different position : ");
+                    }
+                    else
+                    break;
+                }
                 else
-                break;
-            }
-            else
-            System.out.print("Player "+player[turn]+" ... Please enter valid position : ");
-            
+                System.out.print("Player '"+player[turn]+"' Please enter a valid position : ");
+            } catch(Exception e) {System.out.print("Player '"+player[turn]+"' Please enter a valid position : ");}
+
             p=sc.nextLine();
             p=p.trim();
         }
@@ -99,7 +91,7 @@ public class Common
         }
         System.out.println();
                 
-        for(int i=0;i<9;i++)
+        for(int i=8;i>=0;i--)
         {
             if(board[i]==' ')
             {
@@ -114,7 +106,7 @@ public class Common
         if(checkWinner()==true)
         {
             if(player[turn]=='X')
-            System.out.println("\nCongratulations! "+name+" Wins !\n");
+            System.out.println("\nCongratulations! You Won\n");
             else
             System.out.println("\n Computer Wins !\n");
             return;

@@ -3,19 +3,7 @@ package TicTacToe;
 import java.util.Scanner;
 class TwoPlayers extends Common
 {
-    String onm="O";
-    String xnm="X";
-    protected void setName(Scanner sc)
-    {
-        System.out.print("Player 'O' !! Set your Custom name (default 'O') : ");
-        String t=sc.nextLine();
-        if(!t.isEmpty())
-        onm=t;
-        System.out.print("Player 'X' !! Set your Custom name (default 'X') : ");
-        t=sc.nextLine();
-        if(!t.isEmpty())
-        xnm=t;
-    }
+    Scanner sc=new Scanner(System.in);
 
     protected void lastMove()
     {
@@ -38,7 +26,7 @@ class TwoPlayers extends Common
         }
         System.out.println();
                 
-        for(int i=0;i<9;i++)
+        for(int i=8;i>=0;i--)
         {
             if(board[i]==' ')
             {
@@ -52,10 +40,8 @@ class TwoPlayers extends Common
 
         if(checkWinner()==true)
         {
-            if(player[turn]=='O')
-            System.out.println("\n"+onm+" Wins !\n");
-            else
-            System.out.println("\n"+xnm+" Wins !\n");
+
+            System.out.println("\nPlayer '"+player[turn]+"' Wins !\n");
             return;
         }
         else
@@ -65,12 +51,7 @@ class TwoPlayers extends Common
         }
     }
 
-    void input(Scanner sc)
-    {
-        get(sc);
-    }
-
-    void play(Scanner sc)
+    void play()
     {
         print();
         while(counter<9)
@@ -81,7 +62,7 @@ class TwoPlayers extends Common
             }
             else
             {
-                input(sc);
+                get();
 
                 board[position]=player[turn];
 
@@ -91,24 +72,12 @@ class TwoPlayers extends Common
                 {
                     if(checkWinner()==true)
                     {
-                        if(player[turn]=='O')
-                        System.out.println("\n"+onm+" Wins !\n");
-                        else
-                        System.out.println("\n"+xnm+" Wins !\n");
+                        System.out.println("\nPlayer '"+player[turn]+"' Wins !\n");
                         return;
                     }
                 }
                 turn=1-turn;
             }
         }
-    }
-
-    public static void main(String[] args)
-    {
-        Scanner sc=new Scanner(System.in);
-        TwoPlayers obj=new TwoPlayers();
-        obj.setName(sc);
-        obj.play(sc);
-        sc.close();
     }
 }

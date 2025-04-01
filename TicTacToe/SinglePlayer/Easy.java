@@ -2,8 +2,9 @@ package TicTacToe.SinglePlayer;
 import TicTacToe.Common;
 import java.util.Scanner;
 
-class Easy extends Common
+public class Easy extends Common
 {
+    Scanner sc=new Scanner(System.in);
     void algo()
     {
         if(counter<3)
@@ -43,11 +44,11 @@ class Easy extends Common
         }
     }
 
-    void input(Scanner sc)
+    void input()
     {
         if(player[turn]=='X')
         {
-            get(sc);
+            get();
         }
         else
         {
@@ -56,7 +57,7 @@ class Easy extends Common
     }
 
 
-    void play(Scanner sc)
+    public void play()
     {
         print();
         while(counter<9)
@@ -67,7 +68,7 @@ class Easy extends Common
             }
             else
             {
-                input(sc);
+                input();
 
                 board[position]=player[turn];
                 if(turn==1 || counter==7)
@@ -81,7 +82,7 @@ class Easy extends Common
                     if(checkWinner()==true)
                     {
                         if(player[turn]=='X')
-                        System.out.println("\nCongratulations! "+name+" Wins !\n");
+                        System.out.println("\nCongratulations! You Won\n");
                         else
                         System.out.println("\nComputer Wins !\n");
                         return;
@@ -90,14 +91,5 @@ class Easy extends Common
                 turn=1-turn;
             }
         }
-    }
-    
-    public static void main(String[] args)
-    {
-        Scanner sc=new Scanner(System.in);
-        Easy obj=new Easy();
-        obj.setName(sc);
-        obj.play(sc);
-        sc.close();
     }
 }

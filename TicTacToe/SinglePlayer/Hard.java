@@ -2,8 +2,9 @@ package TicTacToe.SinglePlayer;
 import TicTacToe.Common;
 import java.util.Scanner;
 
-class Hard extends Common
+public class Hard extends Common
 {   
+    Scanner sc=new Scanner(System.in);
     boolean winningMove()
     {
         int [][] winpatterns={{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
@@ -99,11 +100,11 @@ class Hard extends Common
         }
     }
 
-    void input(Scanner sc)
+    void input()
     {
         if(player[turn]=='X')
         {
-            get(sc);
+            get();
         }
         else
         {
@@ -112,7 +113,7 @@ class Hard extends Common
     }
 
 
-    void play(Scanner sc)
+    public void play()
     {
         print();
         while(counter<9)
@@ -123,7 +124,7 @@ class Hard extends Common
             }
             else
             {
-                input(sc);
+                input();
 
                 board[position]=player[turn];
                 if(turn==1 || counter==7)
@@ -137,7 +138,7 @@ class Hard extends Common
                     if(checkWinner()==true)
                     {
                         if(player[turn]=='X')
-                        System.out.println("\nCongratulations! "+name+" Wins !\n");
+                        System.out.println("\nCongratulations! You Won\n");
                         else
                         System.out.println("\nComputer Wins !\n");
                         return;
@@ -146,14 +147,5 @@ class Hard extends Common
                 turn=1-turn;
             }
         }
-    }
-    
-    public static void main(String[] args)
-    {
-        Scanner sc=new Scanner(System.in);
-        Hard obj=new Hard();
-        obj.setName(sc);
-        obj.play(sc);
-        sc.close();
     }
 }

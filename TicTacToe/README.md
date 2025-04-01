@@ -10,35 +10,17 @@ A simple yet interactive console-based Tic-Tac-Toe game with Two-Player mode and
  cd Java-Projects
  cd TicTacToe
 ```
-3. Compile *Common.java* :
+3. Compile all the files :
 ```
  javac -d . Common.java
-```
-Compile and Execute the files :
-#### Two Players mode :
-```
+ javac -d . SinglePlayer/Easy.java
+ javac -d . SinglePlayer/Hard.java
  javac -d . TwoPlayers.java
+ javac -d . Start.java
 ```
+#### Execute the main file :
 ```
- java TicTacToe.TwoPlayers
-```
-#### Single Player mode :
-```
- cd SinglePlayer
-```
-- Easy mode
-```
- javac -d . Easy.java 
-``` 
-``` 
- javac TicTacToe.SinglePlayer.Easy
-```
-- Hard mode
-```
- javac -d . Hard.java 
-``` 
-``` 
- javac TicTacToe.SinglePlayer.Hard
+ java TicTacToe.Start
 ```
 
 ### Features
