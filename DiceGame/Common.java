@@ -1,6 +1,6 @@
 package DiceGame;
 
-public class Common {
+class Common {
    private String[][] graphics = {
          {
                "___________",
