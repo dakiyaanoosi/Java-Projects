@@ -69,7 +69,7 @@ class CustomBase
         String number=input(from);
 
         BigInteger bg=new BigInteger(number,from);
-        System.out.println("Result : "+bg.toString(To));
+        System.out.println("Result : "+bg.toString(To).toUpperCase());
 
         System.out.println("\n1.Press ENTER to Convert again\n2.Type Anything & press ENTER to STOP");
         String input=sc.nextLine();
