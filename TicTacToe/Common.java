@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Common
 {
     Scanner sc=new Scanner(System.in);
-    protected Character board[]={' ',' ',' ',' ',' ',' ',' ',' ',' '};
+    protected char board[]={' ',' ',' ',' ',' ',' ',' ',' ',' '};
     protected char player[]={'X','O'};
     protected int turn=0;
     protected int counter=0;
