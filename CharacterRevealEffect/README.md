@@ -16,5 +16,5 @@ A basic console based java program that tries to mimic the character reveal anim
 ```
 4. Execute the file :
 ```
- java CharacterRevealEffect.java
+ java CharacterRevealEffect.Main
 ```
