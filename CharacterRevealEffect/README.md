@@ -1,5 +1,5 @@
 # CharacterRevealEffect
-A basic console-based Java program that mimics the character reveal animation effect.
+A basic console-based Java program that tries to mimic the character reveal animation effect.
 ### How to Run ?
 1. Clone the Repository :
 ``` 
