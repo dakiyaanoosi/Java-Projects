@@ -8,7 +8,7 @@ class Start
     {
         int ch;
         Scanner sc=new Scanner(System.in);
-        System.out.print("\nMain Menu\n\n1.Two Players\n2.SinglePlayer --> Easy\n3.SinglePlayer --> Hard\n4.SinglePlayer --> Unbeatable\n\nSelect Mode [1/2/3/4] : ");
+        System.out.print("\nMain Menu\n\n1. Two Players\n2. Single Player --> Easy\n3. Single Player --> Hard\n4. Single Player --> Unbeatable\n\nSelect Mode [1/2/3/4] : ");
         String s=sc.nextLine();
         s=s.trim();
         while(true)
